@@ -1,0 +1,22 @@
+{
+    "name": "muhammad.qasim/backend",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "muhdqasim",
+            "email": "muhammad.qasim@technologi.co.uk"
+        }
+    ],
+    "require": {
+        "webonyx/graphql-php": "^14.9.0",
+        "slim/slim": "^4.0",
+        "php-di/php-di": "^7.0",
+        "slim/http": "^1.2",
+        "slim/psr7": "^1.6",
+        "selective/basepath": "^2.2"
+    }
+}

@@ -1,0 +1,55 @@
+type Query {
+  shoppingList(id: ID!): ShoppingList
+  shoppingLists: [ShoppingList!]!
+  items: [Item!]!
+  searchItems(searchValue: String, limit: Int, offset: Int): PaginatedItems!
+}
+
+type Mutation {
+  createShoppingList(input: ShoppingListInput!): ShoppingList
+  updateShoppingList(id: ID!, input: ShoppingListInput!): ShoppingList
+  deleteShoppingList(id: ID!): ShoppingList
+
+  addItemsToCart(items: [CartItemInput]!): Boolean
+}
+
+type ShoppingList {
+  id: ID!
+  name: String!
+  status: String!
+  items: [Item!]!
+}
+
+type Item {
+  id: ID!
+  name: String!
+  description: String
+  quantity: Int!
+  price: Float!
+  checked: Boolean!
+  image_url: String
+}
+
+type PaginatedItems {
+  items: [Item!]!
+  totalCount: Int!
+}
+
+input ShoppingListInput {
+  name: String!
+  items: [ItemInput]
+}
+
+input ItemInput {
+  name: String!
+  description: String
+  quantity: Int!
+  price: Float!
+  checked: Boolean!
+  image_url: String
+}
+
+input CartItemInput {
+  id: ID!
+  quantity: Int!
+}
